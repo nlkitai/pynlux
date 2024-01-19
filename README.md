@@ -1,7 +1,7 @@
 # PyNlux 🌲
 
 This project contains the source code for the demo server and APIs used on the [NLUX.ai](https://nlux.ai) 
-website.<br />These APIs are built using **LangChain**, **LangServer** and **Uvicorn**.
+website.<br />These APIs are built using **LangChain**, **LangServe**, and **OpenAI".
 
 They are currently being served via Heroku, and this repository contains related Heroku config files.
 
@@ -14,7 +14,7 @@ you can add conversational AI capabilities and interact with your favourite LLM.
 In addition to the UI AiChat component, NLUX also provides [adapters to connect to several LLMs](https://docs.nlux.ai/learn/adapters) 
 such as the OpenAI models, Hugging Face, and LangChain.
 
-Please visit [NLUX.ai](https://nlux.ai) for examples, documentation, and to learn more.
+Visit [NLUX.ai](https://nlux.ai) for examples, documentation, and to learn more.
 
 ## Repository Content
 
@@ -24,7 +24,7 @@ just curious about how the NLUX demo APIs works, you can check the folders in th
 * `./app` ― The FastAPI endpoint and web server.
 * `./packages` ― Several Python packages matching different endpoints.
 
-## Running + Running This Project
+## Building + Running This Project
 
 Please check `./pipeline/README.md` in this repository for further instructions on how to build and run this 
 project on your local dev machine or server.
