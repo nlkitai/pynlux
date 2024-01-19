@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pynlux"
+version = "0.1.0"
+description = ""
+authors = ["Salmen Hichri"]
+readme = "README.md"
+packages = [
+    { include = "app" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12.1,<4.0"
+uvicorn = "^0.23.2"
+langserve = {extras = ["server"], version = ">=0.0.30"}
+pydantic = "<2"
+pirate-speak = {path = "packages/pirate-speak", develop = true}
+einbot = {path = "packages/einbot", develop = true}
+
+[tool.poetry.group.dev.dependencies]
+langchain-cli = ">=0.0.15"
+
+[tool.poetry.scripts]
+dev = 'pipeline.dev:dev_server'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

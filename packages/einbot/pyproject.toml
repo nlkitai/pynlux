@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "einbot"
+version = "0.0.1"
+description = "EinBot is an AI chatbot channelling Einstein's wisdom and humour"
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12.1,<4.0"
+openai = "<2"
+langchain-community = "^0.0.7"
+langchain-core = "^0.1.4"
+
+[tool.poetry.group.dev.dependencies]
+langchain-cli = ">=0.0.15"
+fastapi = "^0.104.0"
+sse-starlette = "^1.6.5"
+
+[tool.langserve]
+export_module = "einbot.chain"
+export_attr = "chain"
+
+[tool.templates-hub]
+use-case = "chatbot"
+author = "NLUX"
+integrations = ["OpenAI"]
+tags = ["getting-started", "nlux-demo"]
+
+[build-system]
+requires = [
+    "poetry-core",
+]
+build-backend = "poetry.core.masonry.api"
