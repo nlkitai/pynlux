@@ -1,12 +1,26 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pirate_speak.chain import chain as pirate_speak_chain
 from einbot.chain import chain as einbot_chain
 from langchain.schema.runnable import Runnable
 from langserve import add_routes
 
+origins = [
+    "https://nlux.ai",
+    "https://docs.nlux.ai",
+    "http://localhost",
+    "http://localhost:9090",
+]
+
 app = FastAPI(debug=False, docs_url=None)
-defaultEndpoints = ["invoke", "stream", "input_schema", "output_schema"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
