@@ -1,9 +1,9 @@
 # PyNlux 🌲
 
-This project contains the source code for the demo server and APIs used on the [NLUX.ai](https://nlux.ai) 
-website.<br />These APIs are built using **LangChain**, **LangServe**, and **OpenAI**.
+This project contains the source code for the demo server and APIs used on the **[NLUX.ai](https://nlux.ai)** 
+website.<br />These APIs are built using **LangChain**, **LangServe**, and **OpenAa`I**.
 
-They are currently being served via Heroku, and this repository contains related Heroku config files.
+They are currently being served via Heroku, and this repository also contains Heroku config files.
 
 ## Creating Conversational AI Interfaces with NLUX
 

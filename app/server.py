@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,12 +7,24 @@ from einbot.chain import chain as einbot_chain
 from langchain.schema.runnable import Runnable
 from langserve import add_routes
 
+ON_HEROKU = os.environ.get('ON_HEROKU')
+
 origins = [
     "https://nlux.ai",
-    "https://docs.nlux.ai",
-    "http://localhost",
-    "http://localhost:9090",
+    "https://docs.nlux.ai"
 ]
+
+if ON_HEROKU:
+    # Additional origins that may be added/configured via HEROKU
+    HEROKU_ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS")
+    if HEROKU_ALLOWED_ORIGINS:
+        origins_to_add = HEROKU_ALLOWED_ORIGINS.split(",")
+        for origin in origins_to_add:
+            origins.append(origin)
+else:
+    # Below are used for dev purposes on localhost
+    # Do not deploy to a public remove server
+    origins.append("http://localhost:9090")
 
 app = FastAPI(debug=False, docs_url=None)
 app.add_middleware(
@@ -42,9 +55,7 @@ add_route("/einbot", einbot_chain)
 
 if __name__ == "__main__":
     import uvicorn
-    import os
 
-    ON_HEROKU = os.environ.get('ON_HEROKU')
     if ON_HEROKU:
         port = int(os.environ.get("PORT", 17995))
     else:
