@@ -18,7 +18,7 @@ sse-starlette = "^1.6.5"
 
 [tool.langserve]
 export_module = "einbot.chain"
-export_attr = "chain"
+export_attr = ["chain", "mia_chain"]
 
 [tool.templates-hub]
 use-case = "chatbot"

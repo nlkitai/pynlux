@@ -22,7 +22,7 @@ If you are interested in learning how to use LangChain to build an API powered b
 just curious about how the NLUX demo APIs works, you can check the folders in this repository:
 
 * `./app` ― The FastAPI endpoint and web server.
-* `./packages` ― Several Python packages matching different endpoints.
+* `./packages` ― Several Python packages matching different endpoints. This includes the newly added `mia` endpoint, which connects to Claude.ai with a smart detective persona named Mia, designed to help users solve complex issues with intelligence and dark humor.
 
 ## Building + Running This Project
 
