@@ -4,6 +4,7 @@ from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pirate_speak.chain import chain as pirate_speak_chain
 from einbot.chain import chain as einbot_chain
+from mia.chain import chain as mia_chain
 from langchain.schema.runnable import Runnable
 from langserve import add_routes
 
@@ -52,6 +53,7 @@ def add_route(path: str, chain: Runnable):
 
 add_route("/pirate-speak", pirate_speak_chain)
 add_route("/einbot", einbot_chain)
+add_route("/mia", mia_chain)
 
 if __name__ == "__main__":
     import uvicorn
